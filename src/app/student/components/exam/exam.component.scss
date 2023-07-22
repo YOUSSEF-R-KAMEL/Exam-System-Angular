@@ -1,0 +1,41 @@
+.exam {
+  width: 60%;
+  margin: 100px auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  .loginHead {
+      margin-top: -40px;
+      margin-bottom: 20px;
+
+      h2 {
+          display: inline-block;
+          padding: 5px 88px;
+          background-color: #f44336;
+          font-size: 28px;
+          color: #fff;
+          text-transform: capitalize;
+          border-radius: 30px;
+          -webkit-border-radius: 30px;
+          -moz-border-radius: 30px;
+          -ms-border-radius: 30px;
+          -o-border-radius: 30px;
+        }
+  }
+  .resultBtn button {
+    width: 100px;
+  }
+}
+
+
+.strong {
+  font-weight: bold;
+}
+
+mat-radio-button {
+  font-weight: bold;
+}
+
+label {
+  color: #000;
+}

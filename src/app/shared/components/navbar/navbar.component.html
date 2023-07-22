@@ -1,0 +1,23 @@
+
+<mat-toolbar color="primary" class="navbar navbar-default py-2">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand"  routerLinkActive="active" routerLink="welcome"><img src="../../../assets/images/school.svg" alt=""> Final </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="d-flex align-items-center">
+      <ul class="nav navbar-right d-flex align-items-center">
+        <li></li>
+        <li *ngIf="user?.role == 'doctor'"><a routerLinkActive="active" routerLink="/students">Students</a></li>
+        <li *ngIf="user?.role == 'doctor'"><a routerLinkActive="active" routerLink="/new-exam">New Exam</a></li>
+        <li *ngIf="user !== null"><a routerLinkActive="active" routerLink="/subjects">Subjects</a></li>
+        <li *ngIf="user !== null"><a routerLinkActive="active" routerLink="/login" (click)="logout()">Logout</a></li>
+        <li *ngIf="user == null"><a routerLinkActive="active" routerLink="/login">Login</a></li>
+        <li *ngIf="user == null"><a routerLinkActive="active" routerLink="/register">register</a></li>
+        <li *ngIf="user !== null" class="username">{{ user?.username }}</li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div>
+</mat-toolbar>
