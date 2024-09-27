@@ -1,0 +1,16 @@
+:host {
+  ::ng-deep {
+  .students {
+    table th {
+      background-color: #0075dd;
+      color: #fff;
+      font-size: 22px;
+      text-align: center;
+    }
+    tr td {
+      text-align: center;
+    }
+
+  }
+  }
+}

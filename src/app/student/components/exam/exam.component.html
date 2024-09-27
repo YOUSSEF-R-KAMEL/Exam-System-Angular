@@ -1,0 +1,44 @@
+<div class="exam">
+  <div class="text-center loginHead">
+      <h2>{{ subject.name}}</h2>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 mb-3" *ngFor="let item of subject.questions, let index = index">
+      <strong><span class="text-danger">Question {{ index + 1 }}:</span> {{ item.question }}</strong>
+
+      <div class="row">
+          <div class="col-md-6 mt-3">
+            <mat-radio-button value="{{ item.answer1 }}" *ngIf="showBool && !showResult && validExam" name="question_{{index + 1}}" (change)="getAnswer($event, index)"></mat-radio-button>
+            <label [ngStyle]="{'font-weight': showResult && studentAnswers[index] == item.answer1 ? 'bold' : 'normal', 'color': correctAnswers[index] ==  item.answer1 ? '#080' : '#000' }">
+              A. {{ item.answer1 }}
+            </label>
+          </div>
+          <div class="col-md-6 mt-3">
+            <mat-radio-button value="{{ item.answer2 }}" *ngIf="showBool && !showResult && validExam" name="question_{{index + 1}}" (change)="getAnswer($event, index)"></mat-radio-button>
+            <label [ngStyle]="{'font-weight': showResult && studentAnswers[index] == item.answer2 ? 'bold' : 'normal', 'color': correctAnswers[index] ==  item.answer2 ? '#080' : '#000' }">
+              B. {{ item.answer2 }}
+            </label>
+          </div>
+          <div class="col-md-6 mt-3">
+            <mat-radio-button value="{{ item.answer3 }}" *ngIf="showBool && !showResult && validExam" name="question_{{index + 1}}" (change)="getAnswer($event, index)"></mat-radio-button>
+            <label [ngStyle]="{'font-weight': showResult && studentAnswers[index] == item.answer3 ? 'bold' : 'normal', 'color': correctAnswers[index] ==  item.answer3 ? '#080' : '#000' }">
+              C. {{ item.answer3 }}
+            </label>
+          </div>
+          <div class="col-md-6 mt-3">
+            <mat-radio-button value="{{ item.answer4 }}" *ngIf="showBool && !showResult && validExam" name="question_{{index + 1}}" (change)="getAnswer($event, index)"></mat-radio-button>
+            <label [ngStyle]="{'font-weight': showResult && studentAnswers[index] == item.answer4 ? 'bold' : 'normal', 'color': correctAnswers[index] ==  item.answer4 ? '#080' : '#000' }">
+              D. {{ item.answer4 }}
+            </label>
+          </div>
+      </div>
+      <button class="btn btn-danger mt-4" *ngIf="!showBool" (click)="Delete(index)">Delete</button>
+      <hr>
+    </div>
+    <div class="resultBtn text-center" *ngIf="showBool">
+      <strong class="text text-success" *ngIf="showResult || !validExam">{{ points }} / {{subject?.questions.length}}</strong>
+      <button class="btn btn-success" *ngIf="!showResult && validExam" (click)="result()">Result</button>
+    </div>
+
+  </div>
+</div>
